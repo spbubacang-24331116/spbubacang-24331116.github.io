@@ -49,3 +49,78 @@ body:not(.admin-body) .footer a:hover{color:#c8102e}
 .admin-heading .brand-logo{width:50px;height:50px}
 .login-card .brand-logo{width:54px;height:54px}
 @media(max-width:600px){.topbar .brand-logo{width:44px;height:44px}.brand-logo{width:42px;height:42px}.admin-heading .brand-logo{width:42px;height:42px}.admin-heading h1{font-size:23px!important}.side-brand .brand-logo{width:38px;height:38px}}
+
+
+/* PERTAMAX BLUE + PERTAMINA ACCENTS — PUBLIC FRONTEND */
+body:not(.admin-body){
+ --bg:#f3f7fc;--panel:#ffffff;--panel2:#eaf1f9;--line:#d8e3f0;
+ --text:#102b4e;--muted:#647a94;--purple:#0876c9;--pink:#e31e24;
+ --cyan:#27a9e0;--gold:#f5c542;--green:#159b65;
+ background:var(--bg);color:var(--text);
+}
+body:not(.admin-body) .topbar{background:rgba(255,255,255,.92);border-bottom:1px solid #d9e5f1;box-shadow:0 5px 24px #0b37630b}
+body:not(.admin-body) .brand-mark{background:linear-gradient(135deg,#0876c9,#06427f);color:white}
+body:not(.admin-body) .brand-logo{width:46px;height:46px;object-fit:contain;border-radius:12px}
+body:not(.admin-body) .hero{
+ background:radial-gradient(ellipse at 82% 10%,#2ab6ed55,transparent 38%),
+ linear-gradient(120deg,#032f67 0%,#075aa5 48%,#087fc1 100%);
+ color:#fff;position:relative
+}
+body:not(.admin-body) .hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:7px;background:linear-gradient(90deg,#e31e24 0 33%,#fff 33% 66%,#159b65 66%)}
+body:not(.admin-body) .hero p{color:#e5f3ff}
+body:not(.admin-body) .gradient-text{background:linear-gradient(90deg,#fff,#bdeaff);background-clip:text;color:transparent}
+body:not(.admin-body) .hero-visual{background:linear-gradient(145deg,#ffffff2b,#0b3972);border:1px solid #ffffff45;backdrop-filter:blur(12px)}
+body:not(.admin-body) .hero-visual:before{background:linear-gradient(140deg,#20b9f477,#e31e2444)}
+body:not(.admin-body) .visual-inner{background:linear-gradient(145deg,#ffffffed,#e7f5ff);border:1px solid #ffffff;color:#10345b}
+body:not(.admin-body) .visual-inner .muted{color:#617b96}
+body:not(.admin-body) .stat{background:#ffffff1c;border:1px solid #ffffff35}
+body:not(.admin-body) .visual-inner .stat{background:#fff;border-color:#dce8f4}
+body:not(.admin-body) .pill{background:#0876c91a;color:#075a9e}
+body:not(.admin-body) .hero .pill{background:#ffffff20;color:#fff;border:1px solid #ffffff55}
+body:not(.admin-body) button:not(.btn-outline),body:not(.admin-body) .btn:not(.btn-outline){background:linear-gradient(110deg,#087fc1,#07539a 72%,#e31e24);color:#fff;box-shadow:0 8px 20px #07539a22}
+body:not(.admin-body) .btn-outline{background:#fff;color:#07539a;border:1px solid #b8cde2}
+body:not(.admin-body) .eyebrow{color:#0876c9}
+body:not(.admin-body) .hero .eyebrow{color:#bfeaff}
+body:not(.admin-body) .section{background-color:transparent}
+body:not(.admin-body) #services,body:not(.admin-body) #news{background:linear-gradient(180deg,#eaf3fb,#f5f8fc)!important}
+body:not(.admin-body) .card{background:rgba(255,255,255,.94);border:1px solid #dce7f2;box-shadow:0 12px 32px #0a3c7010;color:#15385e}
+body:not(.admin-body) .iconbox{background:linear-gradient(135deg,#e2f5ff,#d9eaff);color:#0876c9}
+body:not(.admin-body) .product-card .price{color:#0876c9}
+body:not(.admin-body) .form-control{background:#f8fbff;color:#173858;border-color:#d2e0ed}
+body:not(.admin-body) label{color:#45617f}
+body:not(.admin-body) .banner{background:linear-gradient(110deg,#06427f,#087fc1 72%,#e31e24);border:1px solid #ffffff50;color:#fff}
+body:not(.admin-body) .banner .eyebrow,body:not(.admin-body) .banner .muted{color:#e7f4ff}
+body:not(.admin-body) .footer{background:#062c57;color:#d8eaff;border-top:5px solid transparent;border-image:linear-gradient(90deg,#e31e24 0 33%,#fff 33% 66%,#159b65 66%) 1}
+body:not(.admin-body) .footer .muted{color:#b8d0e8}
+body:not(.admin-body) .empty{background:#fff;color:#647a94;border:1px dashed #bfd0e2}
+body:not(.admin-body) .whatsapp{background:#159b65}
+body:not(.admin-body) .modal{background:#fff;color:#15385e;border-color:#dce7f2}
+body:not(.admin-body) .modal .muted{color:#647a94}
+
+/* Touch-friendly horizontal carousels on tablet and mobile.
+   Desktop keeps the standard responsive grid layout. */
+.responsive-carousel{scrollbar-width:thin;scrollbar-color:#80b9dc transparent}
+@media(max-width:1024px){
+ body:not(.admin-body) .responsive-carousel{
+  display:flex!important;flex-wrap:nowrap!important;overflow-x:auto;overflow-y:hidden;
+  gap:16px;padding:5px 2px 18px;scroll-snap-type:x mandatory;
+  scroll-padding-inline:2px;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain
+ }
+ body:not(.admin-body) .responsive-carousel>.card{
+  flex:0 0 clamp(245px,42vw,330px);min-width:0;scroll-snap-align:start
+ }
+ body:not(.admin-body) .responsive-carousel>.empty{flex:0 0 100%}
+ body:not(.admin-body) .responsive-carousel::-webkit-scrollbar{height:5px}
+ body:not(.admin-body) .responsive-carousel::-webkit-scrollbar-thumb{background:#80b9dc;border-radius:9px}
+}
+@media(max-width:600px){
+ body:not(.admin-body) .container{width:min(100% - 32px,1180px)}
+ body:not(.admin-body) .responsive-carousel{gap:13px;margin-right:-16px;padding-right:16px}
+ body:not(.admin-body) .responsive-carousel>.card{flex-basis:82%;max-width:330px;padding:17px}
+ body:not(.admin-body) .product-img,body:not(.admin-body) .news-img,body:not(.admin-body) .gallery-img{height:175px}
+ body:not(.admin-body) .section-head{align-items:flex-start}
+ body:not(.admin-body) .hero-grid{gap:26px}
+ body:not(.admin-body) .hero-visual{min-height:250px}
+}
+
+.nav-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}@media(max-width:600px){.nav-actions{margin-left:auto}.nav-actions .btn{padding:9px 11px;font-size:12px}}
