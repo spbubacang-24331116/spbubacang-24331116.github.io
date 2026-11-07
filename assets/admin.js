@@ -144,6 +144,7 @@ async function navigate(page) {
   document.getElementById("pageTitle").textContent = title;
   if (page === "dashboard") return dashboard();
   if (page === "settings") return settingsPage();
+  if (page === "video") return videoPage();
   if (page === "orders") return ordersPage();
   return tablePage(page);
 }
@@ -181,7 +182,7 @@ function openEditor(page, index = null) {
     .map(([k, label, type]) => {
       let val = x[k] ?? (k === "active" ? "TRUE" : "");
       if (k === "image")
-        return `<div class="field"><label>${label}</label><input class="form-control" name="image" value="${esc(val)}" placeholder="URL gambar atau unggah file"><input class="form-control" style="margin-top:8px" type="file" id="imageUpload" accept="image/jpeg,image/png,image/webp"><small class="muted">JPG/PNG/WebP maksimal 2 MB. Setelah dipilih, gambar diunggah saat menyimpan.</small></div>`;
+        return `<div class="field"><label>${label}</label><input class="form-control" name="image" value="${esc(val)}" placeholder="URL gambar atau unggah file"><input class="form-control" style="margin-top:8px" type="file" id="imageUpload" accept="image/jpeg,image/png,image/webp"><small class="muted">JPG/PNG/WebP maksimal 8 MB. File akan disimpan ke GitHub Assets.</small></div>`;
       if (type === "textarea")
         return `<div class="field"><label>${label}</label><textarea class="form-control" name="${k}" rows="3">${esc(val)}</textarea></div>`;
       if (type === "select")
@@ -204,8 +205,7 @@ async function saveRecord(e) {
   obj.id = old.id;
   let file = document.getElementById("imageUpload")?.files?.[0];
   if (file) {
-    if (file.size > 2 * 1024 * 1024)
-      return toast("Ukuran gambar maksimal 2 MB");
+    if (file.size > 8 * 1024 * 1024) return toast("Ukuran file maksimal 8 MB");
     let dataUrl = await new Promise((resolve, reject) => {
       let fr = new FileReader();
       fr.onload = () => resolve(fr.result);
@@ -214,7 +214,7 @@ async function saveRecord(e) {
     });
     let parts = dataUrl.split(",");
     let up = await post({
-      action: "uploadImage",
+      action: "uploadMedia",
       mime: file.type,
       filename: file.name,
       base64: parts[1],
@@ -272,7 +272,20 @@ async function settingsPage() {
         ([k, l]) =>
           `<div class="field"><label>${l}</label>${k === "about" || k === "hero_text" ? `<textarea class="form-control" rows="3" name="${k}">${esc(s[k] || "")}</textarea>` : `<input class="form-control" name="${k}" value="${esc(s[k] || "")}">`}</div>`,
       )
-      .join("")}<button>Simpan Pengaturan</button></form></div>`;
+      .join(
+        "",
+      )}<button>Simpan Pengaturan</button></form><hr><h3>Video Profil – Tentang Kami</h3><p class="muted small">Pilih video MP4 atau WebM. Maksimal 8 MB. Video akan otomatis diputar tanpa suara saat pengunjung membuka halaman.</p><div class="field"><label>URL video saat ini</label><input class="form-control" id="aboutVideoUrl" value="${esc(s.about_video || "")}" placeholder="URL video GitHub Assets"></div><div class="field"><label>Unggah / ganti video</label><input class="form-control" type="file" id="aboutVideoUpload" accept="video/mp4,video/webm"></div><button type="button" onclick="saveAboutVideo()">Simpan Video Profil</button></div>`;
+}
+async function videoPage() {
+  let r = await get("settings");
+  if (!r.ok) {
+    document.getElementById("pageContent").innerHTML =
+      `<div class="notice">${esc(r.message || "Gagal mengambil pengaturan")}</div>`;
+    return;
+  }
+  let url = r.data?.about_video || "";
+  document.getElementById("pageContent").innerHTML =
+    `<div class="card"><div class="section-head"><div><h3>Video Profil – Tentang Kami</h3><p class="muted small">Kelola video yang tampil pada bagian Tentang Kami di halaman utama website.</p></div><span class="pill">GitHub Assets</span></div><div class="field"><label>Preview video saat ini</label>${url ? `<video controls playsinline preload="metadata" style="width:100%;max-width:760px;aspect-ratio:16/9;background:#111;border-radius:14px" src="${esc(url)}"></video>` : `<div class="notice">Belum ada video profil yang disimpan.</div>`}</div><div class="field"><label>URL video (opsional)</label><input class="form-control" id="aboutVideoUrl" value="${esc(url)}" placeholder="https://.../assets/uploads/video.mp4"><p class="small muted">Isi URL jika video sudah tersedia di GitHub atau sumber video lain.</p></div><div class="field"><label>Unggah video baru (MP4/WebM)</label><input class="form-control" type="file" id="aboutVideoUpload" accept="video/mp4,video/webm"><p class="small muted">Maksimal 8 MB per file. File akan dikirim ke repository GitHub yang telah dikonfigurasi.</p></div><div class="row" style="gap:10px;flex-wrap:wrap"><button type="button" onclick="saveAboutVideo()">Simpan / Ganti Video</button><button type="button" class="btn-outline" onclick="navigate('video')">Muat Ulang</button></div><p class="small muted" style="margin-top:12px">URL tersimpan: ${url ? `<a href="${esc(url)}" target="_blank" rel="noopener">Lihat file video</a>` : "Belum ada"}</p></div>`;
 }
 async function saveSettings(e) {
   e.preventDefault();
@@ -280,5 +293,43 @@ async function saveSettings(e) {
   new FormData(e.target).forEach((v, k) => (values[k] = v));
   let r = await post({ action: "saveSettings", values });
   toast(r.ok ? "Pengaturan disimpan" : r.message);
+}
+async function saveAboutVideo() {
+  let input = document.getElementById("aboutVideoUrl"),
+    fileInput = document.getElementById("aboutVideoUpload");
+  if (!input || !fileInput)
+    return toast("Form Video Profil tidak ditemukan. Muat ulang halaman.");
+  let url = input.value.trim(),
+    file = fileInput.files[0];
+  if (file) {
+    if (file.size > 8 * 1024 * 1024) return toast("Ukuran video maksimal 8 MB");
+    if (!["video/mp4", "video/webm"].includes(file.type))
+      return toast("Format video harus MP4 atau WebM");
+    let data = await new Promise((resolve, reject) => {
+      let r = new FileReader();
+      r.onload = () => resolve(r.result.split(",")[1]);
+      r.onerror = reject;
+      r.readAsDataURL(file);
+    });
+    let up = await post({
+      action: "uploadMedia",
+      mime: file.type,
+      filename: file.name,
+      base64: data,
+    });
+    if (!up.ok) return toast(up.message || "Upload video gagal");
+    url = up.url;
+    input.value = url;
+  }
+  if (!url)
+    return toast("Pilih file video atau masukkan URL video terlebih dahulu");
+  let save = await post({
+    action: "saveSettings",
+    values: { about_video: url },
+  });
+  if (save.ok) {
+    toast("Video profil berhasil diperbarui");
+    await videoPage();
+  } else toast(save.message || "Gagal menyimpan URL video");
 }
 if (TOKEN) showAdmin();
