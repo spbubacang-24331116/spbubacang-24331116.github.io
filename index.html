@@ -1,19 +1,313 @@
 <!doctype html>
-<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0d1020"><title>SPBU 24.331.116 | Company Profile</title><link rel="stylesheet" href="assets/style.css"></head>
-<body>
-<header class="topbar"><div class="container nav"><a class="brand" href="#"><img class="brand-logo" src="assets/logo-ppla.png" alt="Logo PPLA"><span>SPBU 24.331.116<small class="muted" style="display:block;font-size:10px;font-weight:500">BACANG · PANGKALPINANG</small></span></a><nav class="navlinks"><a href="#home">Beranda</a><a href="#about">Profil</a><a href="#services">Layanan</a><a href="#products">Katalog</a><a href="#news">Berita</a><a href="#contact">Kontak</a></nav><a class="btn btn-outline" href="#">#isibbmdisiniaja</a></div></header>
-<main>
-<section class="hero" id="home"><div class="container hero-grid"><div><div class="eyebrow">Strategi · Pelayanan · Kepercayaan</div><h1>Melayani dengan <span class="gradient-text">Sepenuh Hati</span></h1><p id="heroText">SPBU 24.331.116 Bacang, Pangkalpinang. Komitmen kami adalah memberikan pelayanan energi yang aman, nyaman, dan profesional bagi masyarakat.</p><div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px"><a class="btn" href="#services">Jelajahi Layanan ↗</a><a class="btn btn-outline" href="#contact">Hubungi Kami</a></div><div class="stat-row" style="margin-top:30px"><div class="stat"><strong>24/7*</strong><span class="muted small">Informasi layanan</span></div><div class="stat"><strong>3+</strong><span class="muted small">Kategori layanan</span></div><div class="stat"><strong>100%</strong><span class="muted small">Fokus pelayanan</span></div></div><p class="small muted">*Jam operasional mengikuti informasi resmi SPBU yang berlaku.</p></div><div class="hero-visual"><div class="visual-inner"><div><span class="pill">BACANG · PANGKALPINANG</span><h2 style="font:800 30px Manrope;margin:18px 0 8px">Energi untuk<br><span class="gradient-text">Aktivitas Anda</span></h2><p class="muted">Pelayanan BBM dan fasilitas pendukung dalam satu lokasi.</p></div><div class="stat-row"><div class="stat"><span class="small muted">Lokasi</span><strong style="font-size:17px">Bacang</strong></div><div class="stat"><span class="small muted">Kota</span><strong style="font-size:17px">Pangkalpinang</strong></div></div></div></div></div></section>
-<section id="promoCarousel" class="section" style="padding:28px 0 0"><div class="container"><div id="carouselList" class="grid"></div></div></section>
-<section class="section" id="about"><div class="container"><div class="eyebrow">Tentang Kami</div><h2 class="section-title">Mitra energi masyarakat</h2><p class="muted" style="max-width:780px;line-height:1.8" id="aboutText">SPBU 24.331.116 berlokasi di Bacang, Kota Pangkalpinang. Kami berupaya menghadirkan pelayanan yang tertib, ramah, dan mengutamakan keselamatan serta kenyamanan pelanggan.</p></div></section>
-<section class="section" id="services" style="background:#111529"><div class="container"><div class="section-head"><div><div class="eyebrow">Apa yang Kami Sediakan</div><h2 class="section-title" style="color: #000; font-weight: bold;">Layanan SPBU</h2>
-</div><span class="muted small">Informasi layanan dapat diperbarui admin</span></div><div id="servicesList" class="grid"></div></div></section>
-<section class="section" id="products"><div class="container"><div class="section-head"><div><div class="eyebrow">Katalog</div><h2 class="section-title">Produk & Pemesanan</h2><p class="muted">Katalog produk non-BBM/merchandise yang tersedia untuk dipesan.</p></div><button class="btn" onclick="openCart()">Keranjang <span id="cartCount" class="pill" style="background:#ffffff30;color:white">0</span></button></div><div id="productsList" class="grid"></div></div></section>
-<section class="section" id="news" style="background:#111529"><div class="container"><div class="eyebrow">Informasi Terkini</div><h2 class="section-title">Berita & Artikel</h2><div id="newsList" class="grid"></div></div></section>
-<section class="section" id="gallery"><div class="container"><div class="eyebrow">Dokumentasi</div><h2 class="section-title">Galeri Kegiatan</h2><div id="galleryList" class="grid"></div></div></section>
-<section class="section" id="contact"><div class="container"><div class="banner"><div><div class="eyebrow">Kami Siap Melayani</div><h2 class="section-title" style="margin-bottom:6px">Ada yang ingin ditanyakan?</h2><p class="muted" id="addressText">Jalan Depati Hamzah, Bacang, Kota Pangkalpinang.</p></div><a id="contactWA" class="btn" href="https://wa.me/6281272937522" target="_blank" rel="noopener">Chat WhatsApp ↗</a></div></div></section>
-</main>
-<footer class="footer"><div class="container footer-grid"><div><div class="brand"><img class="brand-logo brand-logo-footer" src="assets/logo-ppla.png" alt="Logo PPLA">SPBU 24.331.116</div><p class="muted">Pelayanan energi untuk masyarakat Bacang dan sekitarnya.</p></div><div><b>Menu</b><p><a href="#about">Profil</a><br><a href="#services">Layanan</a><br><a href="#news">Berita</a></p></div><div><b>Kontak</b><p id="footerAddress">Bacang, Pangkalpinang</p><a id="footerWA" href="https://wa.me/6281272937522">WhatsApp</a></div></div><div class="container small" style="margin-top:30px">© <span id="year"></span> SPBU 24.331.116. Informasi website dikelola administrator.</div></footer>
-<a class="whatsapp" href="https://wa.me/6281272937522" target="_blank" rel="noopener">☏ WhatsApp</a>
-<div id="cartModal" class="modal-backdrop hidden"><div class="modal"><div style="display:flex;justify-content:space-between;align-items:center"><h2>Keranjang Pesanan</h2><button class="btn-outline" onclick="closeCart()">Tutup</button></div><div id="cartItems"></div><hr style="border-color:#ffffff18"><h3>Total: <span id="cartTotal">Rp0</span></h3><div class="field"><label>Nama pemesan</label><input id="custName" class="form-control"></div><div class="field"><label>Nomor HP</label><input id="custPhone" class="form-control"></div><div class="field"><label>Alamat</label><textarea id="custAddress" class="form-control"></textarea></div><div class="field"><label>Catatan</label><textarea id="custNotes" class="form-control"></textarea></div><button style="width:100%" onclick="checkout()">Simpan Pesanan & Checkout WhatsApp</button><p class="small muted">Pemesanan dikirim ke nomor WhatsApp resmi yang dikonfigurasi.</p></div></div>
-<div id="toast" class="toast hidden"></div><script src="config.js"></script><script src="assets/site.js"></script></body></html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SPBU 24.331.116 Bacang | Pangkalpinang</title>
+
+    <meta
+      name="description"
+      content="Website resmi SPBU Pertamina 24.331.116 Bacang, Pangkalpinang. Informasi layanan, produk BBM, berita dan pelayanan pelanggan."
+    />
+
+    <meta name="theme-color" content="#DA291C" />
+
+    <!-- Open Graph WhatsApp, Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://spbubacang-24331116.github.io/" />
+    <meta property="og:title" content="SPBU Pertamina 24.331.116 Bacang" />
+    <meta
+      property="og:description"
+      content="Melayani dengan Sepenuh Hati. Informasi layanan dan pelayanan SPBU Pertamina 24.331.116 Bacang, Pangkalpinang."
+    />
+    <meta
+      property="og:image"
+      content="https://spbubacang-24331116.github.io/assets/share-spbu.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="SPBU Pertamina 24.331.116 Bacang" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SPBU Pertamina 24.331.116 Bacang" />
+    <meta name="twitter:description" content="Melayani dengan Sepenuh Hati." />
+    <meta
+      name="twitter:image"
+      content="https://spbubacang-24331116.github.io/assets/share-spbu.jpg"
+    />
+
+    <link rel="icon" href="assets/logo-ppla.png" />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="#"
+          ><img
+            class="brand-logo"
+            src="assets/logo-ppla.png"
+            alt="Logo PPLA"
+          /><span
+            >SPBU 24.331.116<small
+              class="muted"
+              style="display: block; font-size: 10px; font-weight: 500"
+              >BACANG · PANGKALPINANG</small
+            ></span
+          ></a
+        >
+        <nav class="navlinks">
+          <a href="#home">Beranda</a><a href="#about">Profil</a
+          ><a href="#services">Layanan</a><a href="#products">Katalog</a
+          ><a href="#news">Berita</a><a href="#contact">Kontak</a>
+        </nav>
+        <a class="btn btn-outline" href="#">#isibbmdisiniaja</a>
+      </div>
+    </header>
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">Strategi · Pelayanan · Kepercayaan</div>
+            <h1>
+              Melayani dengan <span class="gradient-text">Sepenuh Hati</span>
+            </h1>
+            <p id="heroText">
+              SPBU 24.331.116 Bacang, Pangkalpinang. Komitmen kami adalah
+              memberikan pelayanan energi yang aman, nyaman, dan profesional
+              bagi masyarakat.
+            </p>
+            <div
+              style="
+                display: flex;
+                gap: 12px;
+                flex-wrap: wrap;
+                margin-top: 24px;
+              "
+            >
+              <a class="btn" href="#services">Jelajahi Layanan ↗</a
+              ><a class="btn btn-outline" href="#contact">Hubungi Kami</a>
+            </div>
+            <div class="stat-row" style="margin-top: 30px">
+              <div class="stat">
+                <strong>24/7*</strong
+                ><span class="muted small">Informasi layanan</span>
+              </div>
+              <div class="stat">
+                <strong>3+</strong
+                ><span class="muted small">Kategori layanan</span>
+              </div>
+              <div class="stat">
+                <strong>100%</strong
+                ><span class="muted small">Fokus pelayanan</span>
+              </div>
+            </div>
+            <p class="small muted">
+              *Jam operasional mengikuti informasi resmi SPBU yang berlaku.
+            </p>
+          </div>
+          <div class="hero-visual">
+            <div class="visual-inner">
+              <div>
+                <span class="pill">BACANG · PANGKALPINANG</span>
+                <h2 style="font: 800 30px Manrope; margin: 18px 0 8px">
+                  Energi untuk<br /><span class="gradient-text"
+                    >Aktivitas Anda</span
+                  >
+                </h2>
+                <p class="muted">
+                  Pelayanan BBM dan fasilitas pendukung dalam satu lokasi.
+                </p>
+              </div>
+              <div class="stat-row">
+                <div class="stat">
+                  <span class="small muted">Lokasi</span
+                  ><strong style="font-size: 17px">Bacang</strong>
+                </div>
+                <div class="stat">
+                  <span class="small muted">Kota</span
+                  ><strong style="font-size: 17px">Pangkalpinang</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="promoCarousel" class="section" style="padding: 28px 0 0">
+        <div class="container"><div id="carouselList" class="grid"></div></div>
+      </section>
+      <section class="section" id="about">
+        <div class="container">
+          <div class="eyebrow">Tentang Kami</div>
+          <h2 class="section-title">Mitra energi masyarakat</h2>
+          <p
+            class="muted"
+            style="max-width: 780px; line-height: 1.8"
+            id="aboutText"
+          >
+            SPBU 24.331.116 berlokasi di Bacang, Kota Pangkalpinang. Kami
+            berupaya menghadirkan pelayanan yang tertib, ramah, dan mengutamakan
+            keselamatan serta kenyamanan pelanggan.
+          </p>
+        </div>
+      </section>
+      <section class="section" id="services" style="background: #111529">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Apa yang Kami Sediakan</div>
+              <h2 class="section-title" style="color: #000; font-weight: bold">
+                Layanan SPBU
+              </h2>
+            </div>
+            <span class="muted small"
+              >Informasi layanan dapat diperbarui admin</span
+            >
+          </div>
+          <div id="servicesList" class="grid"></div>
+        </div>
+      </section>
+      <section class="section" id="products">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Katalog</div>
+              <h2 class="section-title">Produk & Pemesanan</h2>
+              <p class="muted">
+                Katalog produk non-BBM/merchandise yang tersedia untuk dipesan.
+              </p>
+            </div>
+            <button class="btn" onclick="openCart()">
+              Keranjang
+              <span
+                id="cartCount"
+                class="pill"
+                style="background: #ffffff30; color: white"
+                >0</span
+              >
+            </button>
+          </div>
+          <div id="productsList" class="grid"></div>
+        </div>
+      </section>
+      <section class="section" id="news" style="background: #111529">
+        <div class="container">
+          <div class="eyebrow">Informasi Terkini</div>
+          <h2 class="section-title">Berita & Artikel</h2>
+          <div id="newsList" class="grid"></div>
+        </div>
+      </section>
+      <section class="section" id="gallery">
+        <div class="container">
+          <div class="eyebrow">Dokumentasi</div>
+          <h2 class="section-title">Galeri Kegiatan</h2>
+          <div id="galleryList" class="grid"></div>
+        </div>
+      </section>
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="banner">
+            <div>
+              <div class="eyebrow">Kami Siap Melayani</div>
+              <h2 class="section-title" style="margin-bottom: 6px">
+                Ada yang ingin ditanyakan?
+              </h2>
+              <p class="muted" id="addressText">
+                Jalan Depati Hamzah, Bacang, Kota Pangkalpinang.
+              </p>
+            </div>
+            <a
+              id="contactWA"
+              class="btn"
+              href="https://wa.me/6281272937522"
+              target="_blank"
+              rel="noopener"
+              >Chat WhatsApp ↗</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="brand">
+            <img
+              class="brand-logo brand-logo-footer"
+              src="assets/logo-ppla.png"
+              alt="Logo PPLA"
+            />SPBU 24.331.116
+          </div>
+          <p class="muted">
+            Pelayanan energi untuk masyarakat Bacang dan sekitarnya.
+          </p>
+        </div>
+        <div>
+          <b>Menu</b>
+          <p>
+            <a href="#about">Profil</a><br /><a href="#services">Layanan</a
+            ><br /><a href="#news">Berita</a>
+          </p>
+        </div>
+        <div>
+          <b>Kontak</b>
+          <p id="footerAddress">Bacang, Pangkalpinang</p>
+          <a id="footerWA" href="https://wa.me/6281272937522">WhatsApp</a>
+        </div>
+      </div>
+      <div class="container small" style="margin-top: 30px">
+        © <span id="year"></span> SPBU 24.331.116. Informasi website dikelola
+        administrator.
+      </div>
+    </footer>
+    <a
+      class="whatsapp"
+      href="https://wa.me/6281272937522"
+      target="_blank"
+      rel="noopener"
+      >☏ WhatsApp</a
+    >
+    <div id="cartModal" class="modal-backdrop hidden">
+      <div class="modal">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <h2>Keranjang Pesanan</h2>
+          <button class="btn-outline" onclick="closeCart()">Tutup</button>
+        </div>
+        <div id="cartItems"></div>
+        <hr style="border-color: #ffffff18" />
+        <h3>Total: <span id="cartTotal">Rp0</span></h3>
+        <div class="field">
+          <label>Nama pemesan</label
+          ><input id="custName" class="form-control" />
+        </div>
+        <div class="field">
+          <label>Nomor HP</label><input id="custPhone" class="form-control" />
+        </div>
+        <div class="field">
+          <label>Alamat</label
+          ><textarea id="custAddress" class="form-control"></textarea>
+        </div>
+        <div class="field">
+          <label>Catatan</label
+          ><textarea id="custNotes" class="form-control"></textarea>
+        </div>
+        <button style="width: 100%" onclick="checkout()">
+          Simpan Pesanan & Checkout WhatsApp
+        </button>
+        <p class="small muted">
+          Pemesanan dikirim ke nomor WhatsApp resmi yang dikonfigurasi.
+        </p>
+      </div>
+    </div>
+    <div id="toast" class="toast hidden"></div>
+    <script src="config.js"></script>
+    <script src="assets/site.js"></script>
+  </body>
+</html>
